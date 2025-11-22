@@ -1,0 +1,12 @@
+.next
+node_modules
+.DS_Store
+out
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+/coverage
+.vscode
+yarn-error.log
