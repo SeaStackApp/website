@@ -13,7 +13,6 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
-              <Waves className="h-8 w-8 text-primary" />
               <span className="text-xl font-semibold">SeaStack</span>
             </div>
             <div className="hidden md:flex items-center gap-6">
@@ -326,7 +325,6 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
-              <Waves className="h-6 w-6 text-primary" />
               <span className="text-lg font-semibold">SeaStack</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
