@@ -1,0 +1,1 @@
+export const GITHUB_URL = "https://github.com/SeaStackApp/sea-stack-app"

@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Waves, Server, Shield, Zap, Code, Cloud, Check, ArrowRight, BookOpen, Github, Network } from "lucide-react"
+import {Waves, Server, Shield, Zap, Code, Cloud, Check, ArrowRight, BookOpen, Github, Network, Star} from "lucide-react"
 import Link from "next/link"
+import {GITHUB_URL} from "@/lib/config";
 
 export default function LandingPage() {
   return (
@@ -22,17 +23,18 @@ export default function LandingPage() {
               <Link href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Pricing
               </Link>
-              <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              {/*<Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <span className="flex items-center gap-1">
                   <BookOpen className="h-4 w-4" />
                   Documentation
                 </span>
               </Link>
-              <Link href="#">
-                <Button size="sm">
+              <Button size="sm" asChild={true}>
+                <Link href="#">
                   Launch Cloud <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
+              */}
             </div>
           </div>
         </div>
@@ -48,7 +50,7 @@ export default function LandingPage() {
               <Zap className="h-3 w-3 mr-1" />
               Docker Swarm Management
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance leading-tight">
               Manage Your Docker Swarm
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400 mt-2">
                 From One Control Panel
@@ -59,16 +61,16 @@ export default function LandingPage() {
               and scale your infrastructure with ease.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="#">
+              <Link href="#pricing">
                 <Button
                   size="lg"
                   className="text-lg px-8 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all"
                 >
                   <Cloud className="mr-2 h-5 w-5" />
-                  Get Started with Cloud
+                  See pricing
                 </Button>
               </Link>
-              <Link href="#">
+              <Link href={GITHUB_URL} target="_blank">
                 <Button size="lg" variant="outline" className="text-lg px-8 bg-transparent">
                   <Github className="mr-2 h-5 w-5" />
                   Self-Host (Open Source)
@@ -83,9 +85,9 @@ export default function LandingPage() {
               <div className="aspect-video bg-gradient-to-br from-primary/10 via-secondary/10 to-background rounded-md overflow-hidden relative group">
                 <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none" />
                 <img
-                  src="/modern-dark-docker-swarm-dashboard-interface-with-.jpg"
+                  src="/screenshot.png"
                   alt="SeaStack Dashboard Interface"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700"
                 />
               </div>
             </Card>
@@ -217,7 +219,7 @@ export default function LandingPage() {
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-muted-foreground">Unlimited servers</span>
+                  <span className="text-muted-foreground">Open Source</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -237,18 +239,18 @@ export default function LandingPage() {
                 </li>
               </ul>
 
-              <Link href="#" className="block">
-                <Button variant="outline" className="w-full bg-transparent" size="lg">
+              <Button variant="outline" className="w-full bg-transparent" size="lg" asChild={true}>
+                <Link href={GITHUB_URL} className="block" target="_blank">
                   <Github className="mr-2 h-5 w-5" />
                   Get Started
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </Card>
 
             {/* Cloud Plan */}
             <Card className="p-8 bg-gradient-to-br from-primary/20 via-card to-card border-primary shadow-xl shadow-primary/10 relative transform hover:scale-[1.02] transition-all duration-300">
               <Badge className="absolute top-6 right-6 bg-primary text-primary-foreground hover:bg-primary/90">
-                Popular
+                In Progress
               </Badge>
               <div className="mb-6">
                 <h3 className="text-2xl font-bold mb-2">Cloud</h3>
@@ -281,12 +283,12 @@ export default function LandingPage() {
                 </li>
               </ul>
 
-              <Link href="#" className="block">
-                <Button className="w-full shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all" size="lg">
-                  <Cloud className="mr-2 h-5 w-5" />
-                  Start Free Trial
-                </Button>
-              </Link>
+              <Button className="w-full shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all bg-muted hover:bg-muted hover:shadow-none shadow-none opacity-45" size="lg" asChild={true} disabled={true}>
+                <Link href="" className="block">
+                    <Cloud className="mr-2 h-5 w-5" />
+                    Available Soon
+                </Link>
+              </Button>
             </Card>
           </div>
         </div>
@@ -303,16 +305,17 @@ export default function LandingPage() {
               Join DevOps teams who trust SeaStack to manage their infrastructure
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="#">
+              <Link href={GITHUB_URL} target="_blank" prefetch={false}>
                 <Button size="lg" className="text-lg px-8">
-                  Try Cloud for Free
+                  <Star className="mr-2 h-5 w-5" />
+                  Star on GitHub
                 </Button>
               </Link>
-              <Link href="#">
+              {/*<Link href="#">
                 <Button size="lg" variant="outline" className="text-lg px-8 bg-transparent">
                   View Documentation
                 </Button>
-              </Link>
+              </Link>*/}
             </div>
           </Card>
         </div>
@@ -327,17 +330,8 @@ export default function LandingPage() {
               <span className="text-lg font-semibold">SeaStack</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              <Link href="#" className="hover:text-foreground transition-colors">
-                Documentation
-              </Link>
-              <Link href="#" className="hover:text-foreground transition-colors">
+              <Link href={GITHUB_URL} className="hover:text-foreground transition-colors">
                 GitHub
-              </Link>
-              <Link href="#" className="hover:text-foreground transition-colors">
-                Community
-              </Link>
-              <Link href="#" className="hover:text-foreground transition-colors">
-                Support
               </Link>
             </div>
           </div>
