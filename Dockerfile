@@ -11,7 +11,8 @@ FROM node:22-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
+ARG UMAMI_URL
+ARG UMAMI_SITE_ID
 RUN npm i -g pnpm && pnpm run build
 
 FROM node:22-alpine AS runner

@@ -334,7 +334,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-border/40 text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SeaStack. Open source Docker Swarm management platform.
+            © {new Date().getFullYear()} SeaStack - Made with ♥️ by <Link href="https://simonloir.be">Simon Loir</Link> in Belgium
           </div>
         </div>
       </footer>

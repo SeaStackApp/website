@@ -1,8 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import Script from "next/script";
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -36,11 +36,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const UMAMI_URL = process.env.UMAMI_URL;
+  const UMAMI_SITE_ID = process.env.UMAMI_SITE_ID;
+  console.log({UMAMI_URL, UMAMI_SITE_ID});
   return (
     <html lang="en" className="dark">
       <body className={`font-sans antialiased`}>
         {children}
-        <Analytics />
+        {
+          UMAMI_URL && UMAMI_SITE_ID &&
+          <Script defer src={UMAMI_URL} data-website-id={UMAMI_SITE_ID}></Script>
+        }
       </body>
     </html>
   )
